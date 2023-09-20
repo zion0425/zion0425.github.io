@@ -59,4 +59,4 @@ void currectClubInDeck(){
 
 ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/reflection.png)
 
-결국 `@`를 붙이면 `Reflection` 기능을 통해 그 메서드나 클래스가 메타데이터임을 인지하고 그에 맞는 동작을 수행하게 됩니다.
+결국 `@`를 붙이면 `Reflection` 기능을 통해 런타임에 메서드나 클래스가 특정 메타데이터임을 인지하고 그에 맞는 동작을 수행하게 되는 것입니다.
