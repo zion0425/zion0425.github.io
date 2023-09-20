@@ -30,11 +30,11 @@ void currectClubInDeck(){
 
 > 메타데이터란, 런타임 과정에서 코드를 어떻게 컴파일하고 처리할 것인지 알려주는 정보입니다.
 
-우리는 `Annotation`을 알기위해 먼저 `Refection`에 대해 알아야 합니다.
+우리는 `Annotation`을 알기위해 먼저 `Reflection`에 대해 알아야 합니다.
 
-### Refection
+### Reflection
 
-`Refection`을 통해 클래스의 정보를 가져올 수 있고, 클래스의 인스턴스를 생성하거나, 메소드를 호출할 수 있습니다.
+`Reflection`을 통해 클래스의 정보를 가져올 수 있고, 클래스의 인스턴스를 생성하거나, 메소드를 호출할 수 있습니다.
 
 이를 통해 미식별된 클래스나 메서드등의 정보를 가져올 수 있습니다.
 
@@ -45,17 +45,17 @@ void currectClubInDeck(){
 	String s = (String)c.newInstance();
 ```
 
-위 코드는 `String` 클래스의 정보를 가져오고, `Refection`을 통해 가져온 클래스의 정보를 통해 인스턴스를 생성할 수 있습니다.
+위 코드는 `String` 클래스의 정보를 가져오고, `Reflection`을 통해 가져온 클래스의 정보를 통해 인스턴스를 생성할 수 있습니다.
 
 이처럼 `Reflection`은 런타임에 클래스의 정보를 가져올 수 있다는 특징이 있습니다.
 
 여기서 눈치채셨을지 모르겠지만, `Annotation`은 런타임에 메타데이터를 제공한다는 특징이 있습니다.
 
-이러한 메타데이터를 `Refection`을 통해 가져온다는 것을 알 수 있습니다.
+이러한 메타데이터를 `Reflection`을 통해 가져온다는 것을 알 수 있습니다.
 
-### Annotation과 Refection
+### Annotation과 Reflection
 
-위에서 살펴보았듯 `Annotation`은 `Refection`을 통해 클래스의 정보를 가져올 수 있습니다.
+위에서 살펴보았듯 `Annotation`은 `Reflection`을 통해 클래스의 정보를 가져올 수 있습니다.
 
 ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/reflection.png)
 
