@@ -74,9 +74,23 @@ a.toString(); // "1"
 
 #### Generic Type
 
+`Generic`은 클래스나 메소드에서 사용할 내부 데이터 타입을 외부에서 지정하는 기법입니다.
+
+```java
+ArrayList<T> arr = new arrayList<>();
+```
+
+일반적으로 `Generic`은 다음과 같은 컨벤션이 있습니다.
+
+| Type | 설명  |
+| ---- | ---- |
+| \<T>   | Type |
+| \<E>    | Element |
+| \<K>    | Key |
+| \<V>    | Value |
+
 `Generic`에서는 원시타입을 사용할 수 없습니다.
 
->generic 타입은 일반 타입이란 의미로 타입을 파라미터로 가지는 클래스와 인터페이스를 의미합니다.
 ```java
 ArrayList<int> arr = new ArrayList<>(); // 컴파일 에러
 ```
