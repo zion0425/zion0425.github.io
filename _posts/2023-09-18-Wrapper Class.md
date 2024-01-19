@@ -27,6 +27,7 @@ title: Wrapper Class
 그렇다면 원시 타입과 유사한 참조 타입이 존재하는 이유와 무엇인지 살펴보고 각각의 장단점을 알아보도록 하겠습니다.
 
 > 현재는 Auto-Unboxing이 잘 되어 있어서 아래와 같이 사용해도 문제 없이 사용 가능합니다.
+
 ```java
 int a = 1;
 Integer b = a;
@@ -82,12 +83,12 @@ ArrayList<T> arr = new arrayList<>();
 
 일반적으로 `Generic`은 다음과 같은 컨벤션이 있습니다.
 
-| Type | 설명  |
-| ---- | ---- |
-| \<T>   | Type |
-| \<E>    | Element |
-| \<K>    | Key |
-| \<V>    | Value |
+| Type | 설명    |
+| ---- | ------- |
+| \<T> | Type    |
+| \<E> | Element |
+| \<K> | Key     |
+| \<V> | Value   |
 
 `Generic`에서는 원시타입을 사용할 수 없습니다.
 
@@ -183,7 +184,7 @@ int b = a; // Unboxing
 
 그렇기 때문에 위의 상황들을 고려하여 원시타입과 참조타입을 사용해야 합니다.
 
-___
+---
 
 ### String
 
@@ -244,7 +245,8 @@ private static void printRef(String str){
 이미 존재하는 `String` 객체가 있으면 새로 생성하지 않고, 존재하는 `String` 객체를 리턴합니다.
 
 그렇기 때문에, 같은 문자열의 `String`의 경우 같은 주소값을 반환받게 되는 것이고, 이를 통해 비교 연산자를 통해 String의 값들을 비교할 수 있는 것입니다.
-___
+
+---
 
 #### 블랙잭
 
