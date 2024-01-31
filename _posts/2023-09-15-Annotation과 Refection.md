@@ -1,5 +1,8 @@
 ---
 title: Annotation과 Reflection
+date: 2023-09-15
+categories: [Java]
+tags: [annotation, reflection]
 ---
 
 ### Annotation

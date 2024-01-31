@@ -1,5 +1,8 @@
 ---
 title: Wrapper Class
+date: 2023-09-18
+categories: [Java]
+tags: [wrapper class]
 ---
 
 필자는 Suit(카드 문양)을 담는 String 변수와, Number(카드 숫자)를 담는 Integer 변수를 가지고 있는 `Card Class`를 만들었습니다.

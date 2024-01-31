@@ -1,6 +1,9 @@
 ---
 title: MarkDown 정리 - Extended Syntax
-toc: true
+date: 2023-09-12
+categories: [MarkDown]
+tags: [markdown]
+
 ---
 
 # OverView
