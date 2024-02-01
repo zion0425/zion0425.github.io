@@ -1,5 +1,8 @@
 ---
 title: Collection #7
+date: 2024-01-23
+categories: [Java]
+tags: [collection]
 ---
 
 ## 목차
