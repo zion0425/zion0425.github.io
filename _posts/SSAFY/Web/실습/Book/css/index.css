@@ -1,0 +1,251 @@
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+main,
+header,
+footer {
+    padding: 0 300px;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    box-shadow: 0px 10px 15px -10px gray;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+a {
+    color: gray;
+}
+
+/* navbar_left */
+#logo>a {
+    font-size: 30px;
+}
+
+.nav_left {
+    display: flex;
+    align-items: center;
+}
+
+.nav_left>#notice {
+    margin-left: 20px;
+}
+
+/* navbar_right */
+.nav_right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav_right>div {
+    margin-left: 30px;
+}
+
+
+main {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* section _left */
+#section_left {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.hide_shop_list {
+    display: none;
+    height: 20px;
+}
+
+.profile_image_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.profile_image_list>* {
+    width: 60%;
+}
+
+ul>li {
+    margin: 10px;
+}
+
+.show_shop_list {
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_shop_list {
+    border-radius: 7px;
+    background-color: gray;
+    margin-top: 10px;
+}
+
+.shops article {
+    border-radius: 7px;
+    height: 130px;
+    background-color: darkgray;
+    margin-top: 10px;
+}
+
+.shops article>li {
+    font-weight: bold;
+    padding: 10px 0px 0px 10px;
+}
+
+.shop_list li {
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+/* vote */
+.vote {
+    margin-top: 10px;
+    border: solid 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.vote>img {
+    width: 100px;
+
+}
+
+.vote_item>img {
+    width: 40px;
+}
+
+.vote>.title,
+.vote>.content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.vote>.content {
+    font-weight: bold;
+}
+
+.vote_buttons {
+    display: flex;
+    justify-content: right;
+}
+
+.vote_buttons>* {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.vote_buttons>input:first-child {
+    background-color: blueviolet;
+    color: white;
+}
+
+.vote_date {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* section right */
+#section_right {
+    margin-left: 20px;
+    width: 80%
+}
+
+.book_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.book_item {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.book_img>img {
+    width: 12em;
+}
+
+/* board */
+.board {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.populer_board {
+    width: 50%;
+}
+
+.populer_board>.board_table tr:nth-child(2n + 1) {
+    background-color: whitesmoke;
+}
+
+.recent_board {
+    width: 50%;
+}
+
+.recent_board>table {
+    border-collapse: collapse;
+}
+
+.recent_board>.board_table td,
+.recent_board>.board_table th {
+    border: 1px solid gainsboro;
+}
+
+.board_table {
+    width: 90%;
+}
+
+.board tr {
+    height: 40px;
+}
+
+/* footer */
+.footer_list {
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer_list li {
+    color: aliceblue;
+}
+
+.footer_item {
+    margin-left: 10px;
+}
