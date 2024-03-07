@@ -58,7 +58,7 @@ ul {
     list-style: none;
 }
 
-.movie form {
+.movie_info {
     display: flex;
     align-items: center;
     justify-content: space-around;
