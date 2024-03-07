@@ -76,8 +76,11 @@ main {
 }
 
 .hide_shop_list {
-    display: none;
-    height: 20px;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .profile_image_list {
@@ -95,7 +98,7 @@ ul>li {
 }
 
 .show_shop_list {
-    display: flex;
+    display: none;
     height: 50px;
     text-align: center;
     align-items: center;
@@ -110,20 +113,21 @@ ul>li {
 
 .shops article {
     border-radius: 7px;
-    height: 130px;
+    height: auto;
     background-color: darkgray;
     margin-top: 10px;
 }
 
 .shops article>li {
     font-weight: bold;
-    padding: 10px 0px 0px 10px;
+    padding: 10px 0px 10px 10px;
 }
 
 .shop_list li {
     padding-left: 30px;
     padding-bottom: 10px;
 }
+
 
 /* vote */
 .vote {
@@ -197,7 +201,7 @@ ul>li {
 }
 
 .book_img>img {
-    width: 12em;
+    width: 10vw;
 }
 
 /* board */
