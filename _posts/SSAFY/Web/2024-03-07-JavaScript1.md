@@ -1,5 +1,5 @@
 ---
-title: JavaScript
+title: JavaScript1
 date: 2024-03-07
 categories: [javascript]
 tags: [javascript]
