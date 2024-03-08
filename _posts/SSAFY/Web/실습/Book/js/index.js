@@ -11,8 +11,46 @@ let hideShopTag = document.querySelector(".hide_shop_list")
 let regionLists = document.getElementsByClassName("shop_list");
 let shopLists = document.querySelectorAll("article > li");
 
-let a = document.querySelector("#section_left > div.profile_image_list > img:nth-child(2)");
-let b = document.querySelector("#section_left > div.profile_image_list > img:nth-child(1)");
+let a = document.querySelector(".profile_image_list > img:nth-child(2)");
+let b = document.querySelector(".profile_image_list > img:nth-child(1)");
+
+adminTag.addEventListener("click", () => {
+    window.open("./pollmake.html", "winname", "width=500, height=400");
+})
+
+if (window.localStorage.key("poll")) {
+    let title = document.querySelector(".vote > .content");
+    let cont = document.getElementById("vote_class");
+    let voteDate = document.querySelector(".vote_date");
+
+    let poll = JSON.parse(window.localStorage.getItem("poll"));
+    cont.innerText = "";
+    voteDate.innerHTML = "";
+    for (var i = 0; i < poll.answers.length; i++) {
+        if (poll.answers[i] != undefined && poll.answers[i] != "") {
+            let list = document.createElement("li");
+            list.setAttribute("class", "vote_item");
+
+            let inp = document.createElement("input");
+            inp.setAttribute("type", "radio");
+            inp.setAttribute("name", "vote");
+            inp.setAttribute("id", poll.answers[i]);
+            inp.setAttribute("value", poll.answers[i]);
+
+            let listText = document.createTextNode(poll.answers[i]);
+
+            list.appendChild(inp);
+            list.appendChild(listText)
+            cont.appendChild(list);
+        }
+    }
+
+    title.innerText = poll.question;
+    if (poll.start_date == undefined || poll.start_date == null) poll.start_date = "";
+    if (poll.end_date == undefined || poll.end_date == null) poll.end_date = "";
+
+    voteDate.innerHTML = "투표기간 : " + poll.start_date + " ~ " + poll.end_date;
+}
 
 for (let i = 0; i < shopLists.length; i++) {
 
@@ -31,9 +69,7 @@ if (hasCookie("userId", "ssafy")) {
 }
 
 showShopTag.addEventListener("click", showAllShopList);
-
 hideShopTag.addEventListener("click", hideAllShopList);
-
 loginTag.addEventListener("click", function () {
     let userId = prompt("아이디 입력");
     let userPass = prompt("패스워드 입력");
@@ -72,7 +108,6 @@ function hasCookie(key, value) {
     return false;
 }
 
-
 // 로그아웃 
 logoutTag.addEventListener("click", function () {
     deleteCookie("userId");
@@ -96,6 +131,7 @@ function changeLoginTags(isLogin) {
         adminTag.style.display = "none";
         loginTag.style.display = "";
         signupTag.style.display = "";
+
         a.style.display = "none"
         b.style.display = "inline";
     }

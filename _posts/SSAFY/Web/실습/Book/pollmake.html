@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>투표 만들기</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+  </head>
+  <body>
+    <main class="modal">
+      <div class="model_title">투표 만들기</div>
+      <div class="modal_date">
+        <label>시작일</label>
+        <input type="date" />
+        <label>종료일</label>
+        <input type="date" />
+      </div>
+      <div class="modal_content">
+        <label>질문 내용</label>
+        <input type="text" placeholder="질문내용..." />
+      </div>
+      <div class="modal_request">
+        <label>답변 항목</label>
+        <button class="insert_button">추가</button>
+      </div>
+      <div class="modal_insert_area">
+        <div class="input_area">
+          <input type="text" />
+        </div>
+      </div>
+      <div class="modal_create">
+        <button
+          class="create_button"
+          style="background-color: blueviolet; color: white"
+          ;
+        >
+          투표 생성
+        </button>
+      </div>
+    </main>
+    <script type="text/javascript">
+      let modalInsertTextArea = document.querySelector(".insert_button");
+      let modalDeleteTextArea = document.querySelector(".delete_button");
+
+      modalInsertTextArea.addEventListener("click", () => {
+        let insertTextArea = document.querySelector(".input_area");
+        let element = document.createElement("input");
+        element.setAttribute("type", "text");
+
+        let deleteButton = document.createElement("button");
+        let delteeText = document.createTextNode("삭제");
+        deleteButton.setAttribute("class", "delete_button");
+        deleteButton.appendChild(delteeText);
+
+        insertTextArea.append(element);
+        insertTextArea.append(deleteButton);
+
+        deleteButton.addEventListener("click", () => {
+          insertTextArea.removeChild(element);
+          insertTextArea.removeChild(deleteButton);
+        });
+      });
+
+      let createButton = document.querySelector(".create_button");
+
+      createButton.addEventListener("click", () => {
+        let startDate = document.querySelector(
+          ".modal_date > input:nth-child(2)"
+        );
+        let endDate = document.querySelector(".modal_date input:last-child");
+        let ques = document.querySelector(".modal_content input:last-child");
+        let answerList = document.querySelectorAll(".modal_insert_area input");
+        let answer = [];
+        for (var i = 0; i < answerList.length; i++) {
+          answer[i] = answerList[i].value;
+        }
+
+        let poll = {
+          start_date: startDate.value,
+          end_date: endDate.value,
+          question: ques.value,
+          answers: answer
+        };
+
+        window.localStorage.setItem("poll", JSON.stringify(poll));
+        alert("투표가 생성되었습니다");
+        window.close();
+      });
+    </script>
+  </body>
+</html>

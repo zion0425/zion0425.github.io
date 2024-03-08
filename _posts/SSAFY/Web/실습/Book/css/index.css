@@ -178,6 +178,7 @@ ul>li {
     margin-top: 10px;
     justify-content: center;
     font-weight: bold;
+    font-size: 15px;
 }
 
 /* section right */
@@ -253,3 +254,61 @@ ul>li {
 .footer_item {
     margin-left: 10px;
 }
+
+/* modal  */
+.modal {
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.modal>div:nth-child(n) {
+    margin: 5px;
+}
+
+.modal * {}
+
+.model_title {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.modal_content>input {
+    width: 300px;
+    height: 25px;
+}
+
+.modal_insert_area input {
+    width: 300px;
+    margin-bottom: 5px;
+    height: 25px;
+}
+
+div[class^=modal] button {
+    height: 30px;
+}
+
+.modal_create {
+    display: flex;
+    justify-content: center;
+}
+
+.modal_date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.input_area {
+    display: inline;
+}
+
+.modal_date>input:nth-of-type(n) {}
