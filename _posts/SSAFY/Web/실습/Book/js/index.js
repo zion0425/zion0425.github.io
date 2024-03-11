@@ -14,9 +14,9 @@ let shopLists = document.querySelectorAll("article > li");
 let a = document.querySelector(".profile_image_list > img:nth-child(2)");
 let b = document.querySelector(".profile_image_list > img:nth-child(1)");
 
-adminTag.addEventListener("click", () => {
-    window.open("./pollmake.html", "winname", "width=500, height=400");
-})
+// adminTag.addEventListener("click", () => {
+//     window.open("./pollmake.html", "winname", "width=500, height=400");
+// })
 
 if (window.localStorage.key("poll")) {
     let title = document.querySelector(".vote > .content");
@@ -68,8 +68,8 @@ if (hasCookie("userId", "ssafy")) {
     changeLoginTags(false);
 }
 
-showShopTag.addEventListener("click", showAllShopList);
-hideShopTag.addEventListener("click", hideAllShopList);
+// showShopTag.addEventListener("click", showAllShopList);
+// hideShopTag.addEventListener("click", hideAllShopList);
 loginTag.addEventListener("click", function () {
     let userId = prompt("아이디 입력");
     let userPass = prompt("패스워드 입력");
@@ -116,24 +116,23 @@ logoutTag.addEventListener("click", function () {
 
 // 로그인 여부에 따른 쿠키 체크
 function changeLoginTags(isLogin) {
+    let beforeLogin = document.querySelector(".before-login");
+    let afterLogin = document.querySelector(".after-login");
     if (isLogin) {
-        loginTag.style.display = "none";
-        signupTag.style.display = "none";
-        logoutTag.style.display = "";
-        mypageTag.style.display = "";
-        adminTag.style.display = "";
 
-        b.style.display = "none";
-        a.style.display = "inline";
+        beforeLogin.className = "navbar-nav ms-auto me-2 before-login d-none ";
+        afterLogin.className = "navbar-nav ms-auto me-2 after-login";
+
+        b.className = "d-none";
+        a.className = "d-flex"
     } else {
-        logoutTag.style.display = "none";
-        mypageTag.style.display = "none";
-        adminTag.style.display = "none";
-        loginTag.style.display = "";
-        signupTag.style.display = "";
 
-        a.style.display = "none"
-        b.style.display = "inline";
+        beforeLogin.className = "navbar-nav ms-auto me-2 before-login ";
+        afterLogin.className = "navbar-nav ms-auto me-2 d-none after-login";
+
+
+        a.className = "d-none";
+        b.className = "d-flex"
     }
 }
 

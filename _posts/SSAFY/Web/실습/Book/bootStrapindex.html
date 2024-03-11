@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSAFY BOOK CAFE</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- 상단 navbar start -->
+    
+    <nav class="navbar navbar-expand-md shadow bg-light navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand text-primary fw-bold" href="#">
+          <img
+            src="img/ssafy_logo.png"
+            alt="Logo"
+            width="60"
+            class="d-inline-block"
+          />
+          SSAFY Book Cafe
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">공지사항</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto me-2 before-login">
+            <li class="nav-item">
+              <a class="nav-link" id = "login"href="#">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id ="signup"href="#">회원가입</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto me-2 d-none after-login">
+            <li class="nav-item">
+              <a class="nav-link" id="logout" href="#">로그아웃</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id ="mypage"href="#">마이페이지</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+              id = "admin"
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                관리자</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#pollModal">투표 만들기</a></li>
+                <li><a class="dropdown-item" href="#">차트 만들기</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">회원 관리</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+ 
+    <!-- 상단 navbar end -->
+
+    <!-- 중앙 content start -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mt-3">
+          <div class ="profile_image_list">
+            <img
+              src="img/noimg.png"
+              class="img-thumbnail d-none"
+              alt="..."
+            />
+            <img src="img/profile.png" class="img-thumbnail" alt="..." />
+            
+
+            <!--accodian-->
+            <div class="accordion mt-3" id="areas">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#areas-seoul"
+                    aria-expanded="true"
+                    aria-controls="areas-seoul"
+                  >
+                    서울
+                  </button>
+                </h2>
+                <div
+                  id="areas-seoul"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#areas"
+                >
+                  <div class="accordion-body">역삼점</div>
+                  <div class="accordion-body">선릉점</div>
+                </div>
+              </div>
+            </div>
+     
+        
+              <!--accodian-->
+              <div class="accordion mt-3" id="areas1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#areas-de"
+                      aria-expanded="true"
+                      aria-controls="areas-de"
+                    >
+                      대전
+                    </button>
+                  </h2>
+                  <div
+                    id="areas-de"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#areas1"
+                  >
+                    <div class="accordion-body">학하점</div>
+                    <div class="accordion-body">봉명점</div>
+                  </div>
+                </div>
+              </div>
+
+                <!--accodian-->
+            <div class="accordion mt-3" id="areas2">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#areas-gu"
+                    aria-expanded="true"
+                    aria-controls="areas-gu"
+                  >
+                    구미
+                  </button>
+                </h2>
+                <div
+                  id="areas-gu"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#areas2"
+                >
+                  <div class="accordion-body">안동점</div>
+                  <div class="accordion-body">공단점</div>
+                </div>
+              </div>
+            </div>
+
+              <!--accodian-->
+              <div class="accordion mt-3" id="areas3">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#areas-g"
+                      aria-expanded="true"
+                      aria-controls="areas-g"
+                    >
+                      광주
+                    </button>
+                  </h2>
+                  <div
+                    id="areas-g"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#areas3"
+                  >
+                    <div class="accordion-body">하남신단점</div>
+                    <div class="accordion-body">선릉점</div>
+                  </div>
+                </div>
+              </div>
+            <!--accodian 종료 -->
+          </div>
+   
+            <div class ="vote border border-3 border-danger fw-bold fs-4 rounded-4 mt-5 p-5">
+              <div class="title">[ 당신의 선택 ]</div>
+              <div class="content">공부하고 싶은 분야를 골라 주세요!!!</div>
+    
+              <form name="vote_form">
+                <ul id="vote_class">
+                  <li class="vote_item">
+                    <input
+                      type="radio"
+                      name="vote_language"
+                      id="python"
+                      value="python"
+                    />
+                    <img src="./img/poll/python.png" alt="Python Image" />
+                    <label for="python">Python</label>
+                  </li>
+    
+                  <li class="vote_item">
+                    <input
+                      type="radio"
+                      name="vote_language"
+                      id="html5"
+                      value="html5"
+                    />
+                    <img src="./img/poll/html5.png" alt="HTML5 Image" />
+                    <label for="html5">HTML5</label>
+                  </li>
+    
+                  <li class="vote_item">
+                    <input type="radio" name="vote_language" id="vue" value="vue" />
+                    <img src="./img/poll/vuejs.png" alt="Vue Img" />
+                    <label for="vue">Vue.js</label>
+                  </li>
+    
+                  <li class="vote_item">
+                    <input type="radio" name="vote_language" id="java" value="java" />
+                    <img src="./img/poll/java.png" alt="Java Img" />
+                    <label for="java">Java</label>
+                  </li>
+                </ul>
+                <div class ="vote_buttons">
+                  <input type="submit" value="투표하기" />
+                  <input type="submit" value="결과보기" />
+              </div>
+              </form>
+              <div class="vote_date">투표기간 : 21.03.01 ~ 21.03.31</div>
+          </div>
+        </div>
+        <div class="col-md-9 mt-3">
+          <div class="row fs-5 fw-bold">[ 프로그래밍 언어 ]</div>
+          <div class="row mt-3">
+            <div class="card col-md-3">
+              <img
+                src="img/book/p_book01.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">점프 투 파이썬</h5>
+                <p class="card-text">(18,800원)</p>
+              </div>
+            </div>
+            <div class="card col-md-3">
+              <img
+                src="img/book/p_book02.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">HTML5 API 프로그래밍</h5>
+                <p class="card-text">
+                  (23,000원)
+                </p>
+              </div>
+            </div>
+            <div class="card col-md-3">
+              <img
+                src="img/book/p_book03.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">백견불여일타 Vue.js입문</h5>
+                <p class="card-text">
+                  (22,000원)
+                </p>
+              </div>
+            </div>
+            <div class="card col-md-3">
+              <img
+                src="img/book/p_book04.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Java 프로그래밍</h5>
+                <p class="card-text">
+                  (26,500원)
+                </p>
+              </div>
+            </div>
+
+            <div class="row fs-5 fw-bold">[ 에세이 ]</div>
+            <div class="row mt-3">
+              <div class="card col-md-3">
+                <img
+                  src="img/book/e_book01.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">2인조</h5>
+                  <p class="card-text">(14,800)</p>
+                </div>
+              </div>
+              <div class="card col-md-3">
+                <img
+                  src="img/book/e_book02.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">안녕, 소중한 사람</h5>
+                  <p class="card-text">
+                    (15,000원)
+                  </p>
+                </div>
+              </div>
+              <div class="card col-md-3">
+                <img
+                  src="img/book/e_book03.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">꽃을 보든 너를 본다</h5>
+                  <p class="card-text">
+                    (10,000원)
+                  </p>
+                </div>
+              </div>
+              <div class="card col-md-3">
+                <img
+                  src="./img/book/e_book04.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">행복한 일은 매일 있어</h5>
+                  <p class="card-text">
+                    (12,000원)
+                  </p>
+                </div>
+              </div>
+          </div>
+          <div class="row mt-4">
+            <table class="col table table-striped me-5">
+              <thead>
+                <tr>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">조회 수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="col table">
+              <thead>
+                <tr class ="table-dark">
+                  <th scope="col"> </th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td colspan="2">Larry the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+
+
+
+
+
+
+    <!-- 중앙 left content start -->
+
+    <!-- 중앙 left content end -->
+
+    <!-- 중앙 center content start -->
+
+    <!-- 중앙 center content end -->
+
+    <!-- 중앙 content end -->
+
+    <!-- 하단 footer start -->
+    <footer
+      class="navbar navbar-expand-lg bg-body-tertiary container-fluid justify-content-end"
+    >
+      <div class="container-row">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >카페소개</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">개인정보</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">이용약관</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">오시는길</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- 하단 footet end -->
+
+    <!-- 설문조사 modal start -->
+    <div
+      class="modal fade"
+      id="pollModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">
+              <i class="bi bi-chat-left-dots-fill text-info"> 설문조사 만들기</i>
+            </h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="">
+              <div class="row mb-3 mt-3">
+                <div class="col-md-6">
+                  <i class="bi bi-calendar2-date text-primary"></i>
+                  <label for="start-date" class="form-label">시작일:</label>
+                  <input type="date" class="form-control" id="start-date" name="start-date" />
+                </div>
+                <div class="col-md-6">
+                  <i class="bi bi-calendar2-date text-danger"></i>
+                  <label for="end-date" class="form-label">종료일:</label>
+                  <input type="date" class="form-control" id="end-date" name="end-date" />
+                </div>
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-patch-question" style="color: rgb(121, 2, 119)"></i>
+                <label for="question" class="form-label">질문제목:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="question"
+                  placeholder="질문제목 입력..."
+                  name="question"
+                />
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-pencil-square" style="color: rgb(14, 2, 121)"></i>
+                <label for="question" class="form-label">답변항목:</label>
+                <button type="button" id="btn-answer-add" class="btn btn-outline-primary btn-sm">
+                  <i class="bi bi-plus-square-fill"></i> 추가
+                </button>
+              </div>
+              <div id="poll-answer-list" class="row mb-3">
+                <div class="row mb-1 poll-answer-list-item answer">
+                  <div class ="row">
+                  <div class="col-md-10 ">
+                    <input type="text" class="form-control real_answer" name="answer" />
+                  </div>
+                  <div class="col-md-2"></div>
+                </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="btn-poll-create" class="btn btn-primary btn-sm">
+              투표생성
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 설문조사 modal end -->
+
+
+    <script type="text/javascript">
+      let modalInsertTextArea = document.querySelector("#btn-answer-add");
+      let modalDeleteTextArea = document.querySelector("#delete_button");
+
+      modalInsertTextArea.addEventListener("click", () => {
+        let insertTextArea = document.querySelector(".answer");
+
+        let rootDiv = document.createElement("div");
+        rootDiv.className="row  mt-2";
+
+        let divInput = document.createElement("div");
+        divInput.className = "col-md-10";
+
+        let inputElement = document.createElement("input");
+        
+        inputElement.className = "form-control real_answer";
+        inputElement.type = "text";
+
+        divInput.appendChild(inputElement);
+
+        let divDelteButton = document.createElement("div");
+        divDelteButton.className = "col-md-2";
+
+        let deleteButton = document.createElement("button");
+        let delteeText = document.createTextNode("삭제");
+        
+        deleteButton.className = "delete_button btn btn-outline-danger btn";
+        deleteButton.appendChild(delteeText);
+
+        divDelteButton.appendChild(deleteButton);
+        rootDiv.append(divInput);
+        rootDiv.append(divDelteButton);
+        insertTextArea.append(rootDiv);
+
+        deleteButton.addEventListener("click", () => {
+          insertTextArea.removeChild(rootDiv);
+        });
+      });
+
+      let createButton = document.querySelector("#btn-poll-create");
+
+      createButton.addEventListener("click", () => {
+        let startDate = document.querySelector("#start-date");
+        let endDate = document.querySelector("#end-date");
+        let ques = document.querySelector("#question");
+        let answerList = document.querySelectorAll(".real_answer");
+        let answer = [];
+        for (var i = 0; i < answerList.length; i++) {
+          answer[i] = answerList[i].value;
+        }
+
+        let poll = {
+          start_date: startDate.value,
+          end_date: endDate.value,
+          question: ques.value,
+          answers: answer
+        };
+
+        window.localStorage.setItem("poll", JSON.stringify(poll));
+        alert("투표가 생성되었습니다");
+      });
+    </script>
+    <script type="text/javascript" src="./js/index.js"></script>
+  </body>
+</html>
