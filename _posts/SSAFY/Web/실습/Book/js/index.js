@@ -4,19 +4,81 @@ let adminTag = document.querySelector("#admin");
 let loginTag = document.querySelector("#login");
 let signupTag = document.querySelector("#signup");
 
-let showShopTag = document.querySelector(".show_shop_list")
-let hideShopTag = document.querySelector(".hide_shop_list")
-
-
-let regionLists = document.getElementsByClassName("shop_list");
-let shopLists = document.querySelectorAll("article > li");
-
 let a = document.querySelector(".profile_image_list > img:nth-child(2)");
 let b = document.querySelector(".profile_image_list > img:nth-child(1)");
 
-// adminTag.addEventListener("click", () => {
-//     window.open("./pollmake.html", "winname", "width=500, height=400");
-// })
+let req = new XMLHttpRequest()
+let jsonReq = new XMLHttpRequest();
+
+window.onload = () => {
+    req.open("GET", "./data/programming.xml", true);
+    req.send();
+    jsonReq.open("GET", "./data/essay.json", true);
+    jsonReq.send();
+}
+
+jsonReq.onload = () => {
+    if (jsonReq.status == 200) {
+        let json = JSON.parse(jsonReq.responseText);
+        let programmingRootTag = document.getElementById("right-content");
+
+        let essayInnerHtml = programmingRootTag.innerHTML;
+        essayInnerHtml += `<div class="row fs-5 fw-bold">[ 에세이 ]</div><div class="row mt-3">`;
+
+        json.forEach((m) => {
+            essayInnerHtml += `
+            <div class="card col-md-3">
+            <img
+              src="img/book/${m.isbn}.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">${m.title}</h5>
+              <p class="card-text">
+                (${m.price}원)
+              </p>
+            </div>
+          </div>`
+        });
+
+        programmingRootTag.innerHTML = essayInnerHtml;
+    }
+
+}
+
+req.onload = () => {
+    if (req.status == 200) {
+        let res = req.responseXML;
+
+        let bookList = res.getElementsByTagName("book");
+
+        let isbn = res.getElementsByTagName("isbn");
+        let bookTitle = res.getElementsByTagName("title");
+        let bookPrice = res.getElementsByTagName("price");
+
+        let programmingRootTag = document.getElementById("right-content");
+        let programmingInnerTexts = `<div div class="row fs-5 fw-bold" > [프로그래밍 언어]</div > <div class="row mt-3"> `;
+
+        for (var i = 0; i < bookList.length; i++) {
+            programmingInnerTexts += `
+            <div class="card col-md-3">
+              <img
+                src="img/book/${isbn[i].innerHTML}.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">${bookTitle[i].innerHTML}</h5>
+                <p class="card-text">${bookPrice[i].innerHTML}</p>
+              </div >
+            </div > `
+        }
+        programmingRootTag.innerHTML = programmingInnerTexts + `</div>`;
+    }
+}
+
+
 
 if (window.localStorage.key("poll")) {
     let title = document.querySelector(".vote > .content");
@@ -52,24 +114,12 @@ if (window.localStorage.key("poll")) {
     voteDate.innerHTML = "투표기간 : " + poll.start_date + " ~ " + poll.end_date;
 }
 
-for (let i = 0; i < shopLists.length; i++) {
-
-    shopLists[i].addEventListener("click", () => {
-        if (regionLists[i].style.display == "none") {
-            regionLists[i].style.display = "block";
-        } else {
-            regionLists[i].style.display = "none";
-        }
-    })
-}
 if (hasCookie("userId", "ssafy")) {
     changeLoginTags(true);
 } else {
     changeLoginTags(false);
 }
 
-// showShopTag.addEventListener("click", showAllShopList);
-// hideShopTag.addEventListener("click", hideAllShopList);
 loginTag.addEventListener("click", function () {
     let userId = prompt("아이디 입력");
     let userPass = prompt("패스워드 입력");
@@ -134,22 +184,4 @@ function changeLoginTags(isLogin) {
         a.className = "d-none";
         b.className = "d-flex"
     }
-}
-
-// 전국 매장 리스트 펼치기
-function showAllShopList() {
-    for (let ul of regionLists) {
-        ul.style.display = "block";
-    }
-    showShopTag.style.display = "none";
-    hideShopTag.style.display = "flex";
-}
-
-// 전국 매장 리스트 감추기
-function hideAllShopList() {
-    for (let ul of regionLists) {
-        ul.style.display = "none";
-    }
-    showShopTag.style.display = "flex";
-    hideShopTag.style.display = "none";
 }
