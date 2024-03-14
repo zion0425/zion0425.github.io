@@ -23,20 +23,33 @@
     <script type="text/javascript" src="js/index.js"></script>
   </head>
   <body>
+    <!-- header -->
     <header>
       <Component include-data="./header.html"></Component>
+      <Component include-data="./login.html"></Component>
+      <Component include-data="./signup.html"></Component>
     </header>
-    <Component include-data="./login.html"></Component>
-    <Component include-data="./signup.html"></Component>
+    
+    <div class="col-md-12 mb-4">
+      <p class="text-center"><strong>With mask</strong></p>
+    
+      <div class="bg-image shadow-1-strong rounded">
+        <img src="https://mdbootstrap.com/img/new/standard/city/053.jpg" class="w-100" alt="Sample">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <p class="text-white mb-0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <main>
     <div class="container">
       <div class="container row">
         <Component class="col-md-3" include-data="./book.html"></Component>
         <Component class="col-md-3" include-data="./book.html"></Component>
         <Component class="col-md-3" include-data="./book.html"></Component>
         <Component class="col-md-3" include-data="./book.html"></Component>
-      </div>
-      <div class="container row mt-5">
-        <Component class="" include-data="./login.html"></Component>
       </div>
 
       <div class="container row mt-5">
@@ -46,7 +59,7 @@
         <Component class="col-md-3" include-data="./book.html"></Component>
       </div>
     </div>
-    <div class=" mt-5">
+  </main>
       <Component include-data="./search.html"></Component>
     </div>
 
