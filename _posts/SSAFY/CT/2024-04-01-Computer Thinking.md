@@ -28,6 +28,7 @@ while (true)
     else break;
 ```
 
+l
 연속된 세 수는 6의 배수이다.
 
 ## 자리수 표현
