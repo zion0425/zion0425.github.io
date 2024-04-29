@@ -101,7 +101,6 @@ public class AppConfig {
 
 `@Bean(name = "memberService")`와 같이 이름을 부여할 수도 있다.
 
-
 ## BeanDefinition
 
 이토록 sping이 유연한 이유는 `BeanDefinition`이라는 추상화 덕분이다.
@@ -125,7 +124,6 @@ public class AnnotationConfigApplicationContext {
 ```
 
 `AnnocationBeanDefinitionReader`가 설정 정보인 `AppConfig`를 읽어서 `BeanDefinition`을 만들어준다.
-
 
 ### GenericXmlApplicationContext
 
@@ -171,10 +169,10 @@ Definition을 출력해보면, 등록된 빈들을 확인할 수 있고, Definit
 
 beanDefinitionName memberService
 Root bean: class [null];
-scope=;  
+scope=;
 abstract=false;
-lazyInit=null; 
-autowireMode=3; 
+lazyInit=null;
+autowireMode=3;
 dependencyCheck=0;
 autowireCandidate=true;
 primary=false;
