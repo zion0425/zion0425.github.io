@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+    .orange {
+      color: orange;
+    }
+    .green {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p :class="colorClass">입력창에 올바른 색상 명을 입력하면 글자색이 바껴요.</p>
+    <p>색상 목록</p>
+    <ul>
+      <li>red</li>
+      <li>blue</li>
+      <li>orange</li>
+      <li>green</li>
+    </ul>
+    <hr>
+    <p>색상 목록중 하나를 입력 해 보세요.</p>
+    <input type="text" v-model="colorClass">
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const {createApp, ref} = Vue
+
+    const app = createApp ({
+        setup(){
+
+            const colorClass = ref('');
+
+            return {
+                colorClass
+            }
+        }
+    });
+
+    app.mount("#app")
+
+    
+  </script>
+</body>
+</html>
