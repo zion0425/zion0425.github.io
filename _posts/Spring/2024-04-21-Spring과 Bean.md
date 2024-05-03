@@ -44,7 +44,7 @@ public class AppConfig {
 > [Annotation과 Reflection](https://zion0425.github.io/posts/Annotation%EA%B3%BC-Refection/)
 
 `@Configuration` 어노테이션을 사용하여 `AppConfig` 클래스를 설정파일로 만들었다.
-    
+
 `@Bean` 어노테이션을 사용하여 스프링 컨테이너에 빈을 등록했다.
 
 이를 메인에서 활용하기 위해 `AnnotationConfigApplicationContext`를 사용하여 빈을 가져올 수 있다.
@@ -57,7 +57,7 @@ public static void main(String[] args) {
     OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
 }
 ```
-    
+
 단순히 이렇게 보면 POJO와 크게 다르지 않아 보인다. 오히려 더 복잡해 보이기도 한다.
 
 다시 우리는 왜 Spring을 사용해야 하는가로 돌아오게 된다.

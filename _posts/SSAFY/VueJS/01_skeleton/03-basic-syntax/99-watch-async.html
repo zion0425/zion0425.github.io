@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue instance option</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      table {
+        width: 500px;
+      }
+      tr,
+      td {
+        text-align: center;
+      }
+      th {
+        border-bottom: 2px solid darkgray;
+      }
+      img {
+        width: 80px;
+      }
+    </style>
+  </head>
+w  <body>
+    <div id="app">
+      <h2>SSAFY 캠퍼스 날씨</h2>
+      <label for="area">캠퍼스 선택 : </label>
+      <select id="area" v-model="selArea">
+        <option v-for="(ssafy, index) in ssafys" :key="ssafy.code" :value="ssafy.code">
+          {{ ssafy.area }}
+        </option>
+      </select>
+      선택 캠퍼스 코드 : <input type="text" v-model="selArea" /><br /><br />
+      <div v-if="this.weathers.length != 0">
+        <table>
+          <tr>
+            <th>시간(시)</th>
+            <th>아이콘</th>
+            <th>온도(°C)</th>
+            <th>날씨</th>
+            <th>습도(%)</th>
+          </tr>
+          <tr v-for="(weather, index) in weathers" :key="index">
+            <td>{{ weather.hour }}</td>
+            <td><img :src="`./img/${weather.icon}.png`" alt="" /></td>
+            <td>{{ weather.temp }}</td>
+            <td>{{ weather.wfKor }}</td>
+            <td>{{ weather.reh }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      const { createApp, ref, watch, computed } = Vue
+
+      const app = createApp({
+        name: "APP",
+        setup() {
+          const ssafys = ref([
+            { area: "서울", code: "1168064000" },
+            { area: "광주", code: "2915573000" },
+            { area: "구미", code: "4719060000" },
+            { area: "대전", code: "3020052600" },
+          ])
+          const selArea = ref("")
+          const weathers = ref([])
+
+          // TODO : watch (selArea가 변경되면(code의 길이가 10자리이면) 날씨 얻어 오기)
+          watch(() => selArea.value, (newValue, oldValue) => {
+            if (newValue.length == 10) {
+              getWeather(newValue)
+            }
+          }, {deep: true})
+
+
+          // TODO :
+          // method : getWeather >> fetch를 이용하여 날씨 얻어오기
+          // url : http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=${val}
+          // async function getWeather(code) {
+          //  await fetch(`http://localhost:659/wid/queryDFSRSS.jsp?zone=${code}`)
+          //  .then((res) => res.text())
+          //  .then((data) => {
+          //    console.log(data)
+          //    makeList(data)
+          //  })
+          //}
+
+
+           function getWeather(code) {
+             fetch(`http://localhost:659/proxy/https://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=${code}`)
+            .then((res) => res.text())
+            .then((data) => {
+              console.log('-----------------------------------')
+              console.log(data)
+              makeList(data)
+            })
+          }
+
+          const makeList = (data) => {
+            console.log("hi")
+            weathers.value = []
+            let parser = new DOMParser()
+            const xml = parser.parseFromString(data, "application/xml")
+            let datas = xml.querySelectorAll("data")
+            datas.forEach((weather) => {
+              // console.log(weather);
+              let obj = new Object()
+              obj.hour = weather.querySelector("hour").textContent
+              obj.icon = weather.querySelector("wfEn").textContent
+              obj.temp = weather.querySelector("temp").textContent
+              obj.wfKor = weather.querySelector("wfKor").textContent
+              obj.reh = weather.querySelector("reh").textContent
+
+              // TODO : weathers 배열에 obj 추가
+              weathers.value.push(obj)
+              console.log(weather.value)
+            })
+          }
+          return {
+            ssafys,
+            selArea,
+            weathers,
+          }
+        },
+      })
+      app.mount("#app")
+    </script>
+  </body>
+</html>

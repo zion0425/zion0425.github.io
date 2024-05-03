@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>조건문 연습하기</h1>
+    <button @click = "toggleLogin()">Login/Logout</button>
+    <ul v-show="isLogin">
+      <li >유저네임 : {{user.userName }}</li>
+      <li>관리자여부 : {{user.isAdmin }}</li>
+      <li>비밀번호 : {{user.password }}</li>
+    </ul>
+ </div>
+ <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+	 const { createApp, ref } = Vue;
+
+	 const app = createApp({
+		setup() {
+		  const isLogin = ref(false);
+
+		  const user = {
+			 userName: 'admin',
+			 isAdmin: true,
+			 password: '1q2w3e4r'
+		  }
+
+			function toggleLogin() {
+				isLogin.value = !isLogin.value;
+			}
+
+			 return {
+				isLogin, toggleLogin, user
+			 }
+		  }
+		});
+		app.mount('#app');
+
+  </script>
+</body>
+</html>

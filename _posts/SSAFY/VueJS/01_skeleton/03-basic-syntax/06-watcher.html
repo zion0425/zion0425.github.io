@@ -1,0 +1,88 @@
+<!-- watcher.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1 -->
+      <button @click="count++">Add 1</button>
+      <p>Count: {{ count }}</p>
+
+      <!-- 2 -->
+      <input v-model="message" />
+      <p>Message length: {{ messageLength }}</p>
+
+      <!-- 3 -->
+      <label for="name">이름</label>
+      <input type="text" id="name" v-model.lazy="ssafy.name" /><br />
+      <label for="score">점수</label>
+      <input type="number" id="score" v-model="ssafy.score" /><br />
+      message : {{ msg }} <br />
+      message2 : {{ msg2 }} <br />
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp, ref, watch } = Vue;
+
+      const app = createApp({
+        setup() {
+          const count = ref(0);
+          const message = ref("");
+          const messageLength = ref(0);
+
+          const countWatch = watch(count, (newValue, oldValue) => {
+            console.log(`newValue: ${newValue}, oldValue: ${oldValue}`);
+          });
+
+          const messageWatch = watch(message, (newValue, oldValue) => {
+            messageLength.value = newValue.length;
+          });
+
+          const ssafy = ref({
+            name: "",
+            score: 0,
+          });
+          const msg = ref("");
+          const msg2 = ref("");
+
+          const ssafyWatch = watch(ssafy.value, (newValue, oldValue) => {
+            console.log("ssafy 값이 바뀜!!!");
+            msg.value = `${newValue.name}님 점수는 ${newValue.score}입니다.`;
+          });
+
+          // 반응형 객체의 속성은 watch 불가능. >> getter 사용.
+          // const scoreWatch = watch(ssafy.value.score, (newValue, oldValue) => {
+          //   console.log("ssafy 값이 바뀜!!!");
+          //   msg2.value = `${ssafy.value.name}님 점수는 ${newValue.score}입니다.`;
+          // });
+          // >> getter 사용.
+          const scoreWatch = watch(
+            () => ssafy.value.score,
+            (score) => {
+              console.log("ssafy score 값이 바뀜!!!");
+              msg2.value = `${ssafy.value.name}님 점수는 ${score}입니다.`;
+            }
+          );
+
+          return {
+            count,
+            message,
+            messageLength,
+            ssafy,
+            msg,
+            msg2,
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
