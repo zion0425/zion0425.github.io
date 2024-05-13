@@ -33,22 +33,16 @@ L4는 TCP, UDP의 헤더를 보고 FTP, HTTP, HTTPS 등의 프로토콜을 판�
 L4의 `SLB(Server LoadBalancer)`로도 불린다.
 
 
-
 ## L7 Loadbalancer
 
 기기 성능이 좋지 않았던 시절에는 L4 Loadbalancer를 사용했지만,
-
-
-
 
 1. In-line 방식
 
 	`In-line` 방식은 하나의 `Line` 으로 연결된 방식이다.
 
-
-
-
 2. One-armed 방식
+
 
 
 L4는 TCP, UDP 헤더를 기반으로 VLAN, 그룹화, 부하 분산등의 기능을 제공한다.
@@ -57,7 +51,21 @@ L4는 TCP, UDP 헤더를 기반으로 VLAN, 그룹화, 부하 분산등의 기�
 
 1. Round Robin
 
+	요청을 순차적으로 균일하게 분배한다.
+
 2. Least Connections
+
+	연결 수가 가장 적은 서버로 요청을 보낸다.
+
+3. IP Hash
+
+	클라이언트의 IP 주소를 해싱하여 서버를 선택한다.
+
+4. Weighted Round Robin
+
+	서버에 가중치를 부여하여 요청을 분배한다.
+
+5. Weighted Least Connections
 
 ---
 
