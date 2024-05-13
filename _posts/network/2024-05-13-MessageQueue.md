@@ -147,3 +147,16 @@ Producer는 Queue에 들어오는 내용을 계속 뒤에 append하고 disk에 �
   - Stateless
   - 서버가 죽어도 클라이언트는 살아있다.
 
+
+# 출처
+
+- https://sjh836.tistory.com/185
+- https://docs.spring.io/spring-cloud-commons/docs/current/reference/html/#switching-between-the-load-balancing-algorithms
+- https://www.inflearn.com/questions/691643/spring-cloud-gateway-load-balancer-%EB%B0%A9%EC%8B%9D-%EC%A7%88%EB%AC%B8-%EC%9E%85%EB%8B%88%EB%8B%A4
+- https://happycloud-lee.tistory.com/221
+- https://harveywoods.tistory.com/entry/Kafka-Producer%EC%99%80-Consumer
+- https://firebase.google.com/docs/auth/admin/create-custom-tokens?hl=ko&_gl=1*fqhzw2*_up*MQ..*_ga*MTczMzc5MTk0NS4xNzE1NTc1ODA0*_ga_CW55HF8NVT*MTcxNTU3NTgwMy4xLjAuMTcxNTU3NTgwMy4wLjAuMA..
+
+
+
+
